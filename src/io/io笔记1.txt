@@ -1,0 +1,19 @@
+  四个父抽象类：
+  InputStream     //字节输入流      
+  			 常用子类  ：FileInputStream,  FilterInputStream, StringBufferInputStream
+  			 
+  OutputStream    //字节输出流      
+  			常用子类  ： FileOutputStream,   FilterOutputStream
+  			
+  Reader          //字符输入流     
+  			 常用子类：  BufferedReader, CharArrayReader, FilterReader,
+  			 			 InputStreamReader, PipedReader 
+  			 			 
+  Writer          //字符输出流     
+  			 常用子类： Writer, BufferedWriter, 
+  			 	   CharArrayWriter, FilterWriter, OutputStreamWriter,
+                     FileWriter, PipedWriter,
+
+  --------------------------------------
+  
+  File类用于操作目录和文件，不能读写文件

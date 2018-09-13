@@ -1,0 +1,75 @@
+缓冲区的特点：
+   1：缓冲区的长度可变
+   2：可以直接操作多种数据类型
+   3：最终通过 toString方法将对象打印出字符串
+  4：线程同步
+  
+  public final class StringBuffer   
+  
+  extends  Object 
+ 
+  implements  Serializable, CharSequence 
+ 
+  ----------------------------------------------------------
+  构造函数：
+  StringBuffer()//空缓冲区
+  
+  StringBuffer(String str) //
+  
+ ----------------------------------------------------------------
+  常用的方法：
+  添加：
+    StringBuffer	append(boolean b) //将false 或者 ture加到缓冲区末尾
+    
+    StringBuffer	append(char c) //将字符插入缓冲区末尾，形成新的字符串缓冲区
+    
+    StringBuffer	append(int i) //将整形数据插入缓冲区末尾，形成新的字符串缓冲区
+    
+    StringBuffer	append(float f)//将float型数据类型插入缓冲区末尾，形成新的字符串缓冲区
+    
+     StringBuffer	append(double d) //将double数据类型插入缓冲区末尾，形成新的字符串缓冲区
+     
+     StringBuffer	append(long lng)//将Long类型的数据插入缓冲区末尾，成新的字符串缓冲区
+     
+     StringBuffer	append(char[] str)//将char 数组插入缓冲区末尾，形成新的字符串缓冲区
+      
+     StringBuffer	append(char[] str, int offset, int len) 
+     
+   从指定的角标插入数据：
+    	StringBuffer	insert(int offset, boolean b) 
+          
+		 StringBuffer	insert(int offset, char c) 
+		      
+		 StringBuffer	insert(int offset, char[] str) 
+		        
+		 StringBuffer	insert(int index, char[] str, int offset, int len) 
+		         
+		 StringBuffer	insert(int dstOffset, CharSequence s) 
+		         
+		 StringBuffer	insert(int dstOffset, CharSequence s, int start, int end) 
+		    
+		 StringBuffer	insert(int offset, double d) 
+		       
+		 StringBuffer	insert(int offset, float f) 
+		         
+		 StringBuffer	insert(int offset, int i) 
+		   
+		 StringBuffer	insert(int offset, long l) 
+		          
+		 StringBuffer	insert(int offset, Object obj) 
+		          
+		 StringBuffer	insert(int offset, String str) 
+		 删除：
+		 StringBuffer	delete(int start, int end) //     移除此序列的子字符串中的字符。
+     
+ 		StringBuffer	deleteCharAt(int index) //      移除此序列指定位置的 char
+    
+          替换：
+           StringBuffer	replace(int start, int end, String str)//
+           
+           void	setCharAt(int index, char ch) 
+           反转字符串：
+           StringBuffer	reverse() // 将此字符序列用其反转形式取代
+           将缓冲区指定字符存放到创建的指定数组的指定下标开始处存储：
+           void	getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin)
+         

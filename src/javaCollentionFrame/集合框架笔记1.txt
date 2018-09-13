@@ -1,0 +1,151 @@
+ 集合框架讲的是一套处理对象的一些类和接口的集合成套，操作的目标是对象，因为，JAVA是面向对象的，
+ 所以要有这样的一套东西来处理对象的问题。
+ 数据多了，用对象存，对象多了用数组存或者用集合保存，数组和集合类都是容器。
+ 集合框架是通过不断地抽取个各种容器的共性而形成的一个框架。而顶层是最可以看出一个框架的基本功能。
+ 而为什么会出项这么多的容器，是因为每个容器所存的数据结构不同。
+ 集合的特点是可以存储不同的对象，而且长度可变。
+ 
+ 整个集合框架体系如下所示：
+                                                        接口： Collection
+       -- 子接口List有序，可重复，集合中有索引.                             
+ *               --linkedList:底层的数据结构使用的是数组结构，特点：查询速度很快，但是增删稍慢。线程不同步
+ *               --ArrayList ：底层使用的是链表结构，特点：增删速度快，查询稍慢
+ *               --Vector：底层数组结构，线程同步，被ArrayList代替了                          
+ *                                                    
+ *     --子接口set元素是无序的（存入和取出的顺序不一定一致，元素不可以重复）,其方法跟Collection一模一样
+ *               --HashSet:底层数据结构是哈希表
+ *                   HashSet是如何保证元素唯一性的呢？
+ *                   是通过元素的两个方法，hashCode和equals来完成的 。
+ *                   如果元素的HashCode值相同，才会判断equals是否为真
+ *                   如果不相同，则不会调用equals.
+ *               --TreeSet:    
+ *                  
+
+ * ---------------------------------------------------------------------
+ * Collection 中的方法：
+ * 
+ *1：add(对象)  往集合里面添加元素
+ * 
+ *2： remove(对象)  移除元素
+ *
+ *3： clear();  清空集合
+ *
+ *4： contains(对象) 判断集合中是否包含对象，返回是布尔型的值
+ *
+ *5： size()是获取集合的长度
+ *
+ *6： ArrayList al=new ArrayList();
+ *
+ *7：ArrayList a2=new ArrayList();
+ *
+ *8：a1.retainAll(a2)--获取的a1与a2的的交集并替换掉a1的元素
+ *
+ *9:怎么取出元素并且操作元素呢？：
+ 
+ *10:在集合容器(Collection)中，有一个方法是iterator(),他的返值既不是基本数据类型
+      
+		      也不是对象类型的数据，而是一个接口：Iterator 而这个接口里面定义的方法：
+		            hastNext()//如果还有元素则返回真，如果没有则返回假
+		            next()//获取下一个元素
+		            remove();
+		           迭代器的基本使用（迭代器就是集合中取出元素的方式）
+		           ArrayList a=new ArrayList();
+		           a.add("JAVA01");
+		           a.add("JAVA02");
+		           a.add("JAVA03");
+		           Iterator it=a.iterator();
+		           while(it.hastNext())
+		           {
+		           it.next();
+		           } 
+		     这个接口体现了内部类，但是目前我还是不懂。
+           
+ *11:集合存放的是对象的引用（对象）       
+   ---------------------------------------------------------------------------------------------------         
+ 
+	 
+----------------------------------------------	 
+	 ListIterator接口是 Iterator的子接口
+	执行下面这段代码会报错
+	  ArrayList a=new ArrayList();
+           a.add("JAVA01");
+           a.add("JAVA02");
+           a.add("JAVA03");
+           Iterator it=a.iterator();
+           while(it.hastNext())
+           {
+               Object obj=it.next();
+              if(obj.equals("java0000"))
+              {
+                 a.add("java0000")//并发修改出错
+                 it.remove()//这个不会出错，由于Iterator接口是所提供操作的方法有限，所以来了个子接口ListIterator
+               }
+          
+           } 
+           
+           ----------
+           ListIterator 的运用：
+		            ArrayList a=new ArrayList();
+		           a.add("JAVA01");
+		           a.add("JAVA02");
+		           a.add("JAVA03");
+		           ListIterator lit=a.ListIterator();
+		           while(lit.hasNext())
+		           {
+		               Object obj=lit.next();
+		              if(obj.equals("java0000"))
+		              {
+		                 lit.set("java0000")//并发修改出错
+		                
+		               }
+		         
+		           } 
+	         ---
+	             while(lit.hasprevious())
+		           {
+		             sop(lit.previous);
+		           } 
+    
+ void add(E e) 
+          将指定的元素插入列表（可选操作）。 
+          
+ boolean hasNext() 
+          以正向遍历列表时，如果列表迭代器有多个元素，则返回 true（换句话说，如果 next 返回一个元素而不是抛出异常，则返回 true）。 
+          
+ boolean hasPrevious() 
+          如果以逆向遍历列表，列表迭代器有多个元素，则返回 true。 
+          
+ E next() 
+          返回列表中的下一个元素。 
+          
+ int nextIndex() 
+          返回对 next 的后续调用所返回元素的索引。 
+          
+ E previous() 
+          返回列表中的前一个元素。 
+          
+ int previousIndex() 
+          返回对 previous 的后续调用所返回元素的索引。 
+          
+ void remove() 
+          从列表中移除由 next 或 previous 返回的最后一个元素（可选操作）。 
+          
+ void set(E e) 
+          用指定元素替换 next 或 previous 返回的最后一个元素（可选操作）。 
+------------------------------------------------------------------------------------------
+List 集合中的方法
+     凡是带有索引(index)都是List中特有的方法
+           增：add(index,element)
+        addAll(index,Collection);
+           删：remove(index);
+           改:set(index,element);
+          查： get(index)
+      subList(from,to)//包含头，不包含尾
+      listIterator();
+
+	------------------------------------
+	在集合中判读元素是否相等用的是equals方法,在Object中这个方法比较的是地址值
+	 
+	 
+	 每一个对象都有自己的哈希值（地制值），集合中那么多个对象，是按照哈希表来对应存放的。
+	 有可能两个不同对象的哈希值相等。哈希值可以自己指定，通过复写。

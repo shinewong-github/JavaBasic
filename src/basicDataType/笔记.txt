@@ -1,0 +1,66 @@
+基本数据类型包装类就是把非对象类char、int、boolean、float、double、long、short、包装成各自对象：
+
+ Character  char
+ Integer   int
+ Boolean    boolean
+ Short     short
+ Long      long 
+ Float     float
+ Double    double
+ ----------------------------------------------------------------------
+ Integer类
+ 
+ 构造函数：
+ Integer(int value) 
+ Integer(String s) 
+ 
+ 方法：
+ static int	parseInt(String s)//将字符串转换成整数形式
+ 
+ static int	parseInt(String s, int radix) //将字符串，按照指定的进制表现形式进行转换成十进制
+ 
+ static String	toBinaryString(int i)//将十进制转换成2进制
+ 
+ static String	toHexString(int i) //将十进制转换成8进制
+  
+ static String	toOctalString(int i) //将十进制转换成16进制
+ 
+ 基本数据类型对象包装类的最常见的作用，就是用于基本数据类型和字符串 类型之间做转换
+   
+        基本数据类型转换成字符串的方式：
+     1:基本数据类型 +"";
+     2:基本数据类型（类名）.toString(基本数据类型值)
+                        如：Integer.toString(34)//将整数变成“34”
+           static String toString(int i)
+    
+     字符串转成基本数据类型：
+     1：基本数据类型（类名）.parselnt("String");除Character没有定义parselnt方法外，其他包装类都有这个方法
+                     比如：int mun=Integer.parselnt("123")//必须传入number格式的字符串， ("a123")这是不合适的
+           long l=Long.parselnt("123");
+           double d=Double.parseint("12.23")
+           
+			 parseInt("0", 10) returns 0
+			 parseInt("473", 10) returns 473
+			 parseInt("+42", 10) returns 42
+			 parseInt("-0", 10) returns 0
+			 parseInt("-FF", 16) returns -255
+			 parseInt("1100110", 2) returns 102
+			 parseInt("2147483647", 10) returns 2147483647
+			 parseInt("-2147483648", 10) returns -2147483648
+			 parseInt("2147483648", 10) throws a NumberFormatException
+			 parseInt("99", 8) throws a NumberFormatException
+			 parseInt("Kona", 10) throws a NumberFormatException
+			 parseInt("Kona", 27) returns 411787
+           
+ 
+ 进制的转换函数：
+       将十进制分别转换成2、8、16进制
+    static String toBinaryString(int i)
+                如Integer.toBinaryString(12);
+ 
+    static String	toHexString(int i) 
+       Integer.toHexString(12);
+  
+  static String	toOctalString(int i) 
+       Integer.toOctalString(12);
+ 

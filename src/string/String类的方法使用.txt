@@ -1,0 +1,95 @@
+String 是一个包装类
+	String s=new String("abcdefg");等价于String s="abcdefg"
+	
+	构造函数：
+		1:     Sting()//指向一个空的值
+		    
+		 2     String(String s);//不能被改变的常来量
+		 3  
+		 4     String(char[] value)//接收一个有序的（字符数组本来就是有序的）数组，组成一个字符串
+		 5 
+	     6     String(char[] value, int offset, int count) //中间的参数是从哪个下标开始，而最后一个参数是个数
+	         
+	     7    String(byte[] bytes)
+	
+	
+	
+	
+	
+	
+	
+	常用方法：(对字符串的各种操作：比如有比较字符串；返回字符或者字符串所在下标【在API帮助使用手册里是指索引】；各种判断；各种转换)
+	
+	
+	一个函数应该能从名字上看得出这个函数的功能
+	
+	-----------------------------------------------------------------------------
+	 1  boolean	isEmpty() //判断该字符串是否为空。
+	  
+	 2       char	charAt(int index)//通过索引指定下标值查找返回下标所在的字符串。
+	 
+	 3 		 
+	        //这是回下标的函数
+	 4       int	indexOf(int ch) //通过索引指定的字符值返回其第一次所在字符串的下标
+	         int	indexOf(String str) //通过索引字符串中的子字符串，返回子字符串第一次出现的第一字符开始的下标
+	         int	indexOf(int ch, int fromIndex)//通过索引指定的字符值返回其所在字符串的下标
+	 5       int	indexOf(String str, int fromIndex) //通过索引字符串中的子字符串，返回子字符串第一字符开始的下标
+				  
+						String str="aabbccddefgkkffccaakkjfi fj";
+						int a=str.indexOf('a');//输出结果为0
+						int b=str.indexOf('a',2);//输出结果为17
+						int c=str.indexOf("kk");//输出结果为11
+						int d=str.indexOf("kk",14);输出结果为19
+					
+			   
+	 6       
+	    
+	 7       int	lastIndexOf(int ch) 
+	     
+	 8       int	length()//返回该字符串的长度 返回值为int 参数为空
+	    
+	    
+	 9         boolean startswith(String s)//判断是否以指定的字符串开头
+	   
+	 10        boolean endwith(String s)//判断是否以包含指定的字符串
+	   
+	 11        boolean contains(charSqeueu s)//判断是否以指定的字符串结尾
+	   
+	 12        bolean equals(String s)//判断两对象的地址是否相等
+	   
+	 13        bolean equalsIgnoreCase(String s)//判断忽略大小的两个对象是否相等
+	   
+	   
+	 14         String	replace(char oldChar, char newChar)//一个字符代替原对象的一个字符，然后返回操作后的字符串
+	   
+	 15         String	replace(CharSequence target, CharSequence replacement)//一个字符串代替原对象的一个字符字符串，然后返回操作后的字符串
+	
+	 16         static String	copyValueOf(char[] data)
+	
+	 17         static String	copyValueOf(char[] data, int offset, int count) 
+	
+	
+     18		    char[]	toCharArray()//将字符串转换为字符数组----char [] ch=s.toCharArray();//要定义一个字符数组变量来装入  字符串
+     
+     	        String(char[] value)//接收一个有序的（字符数组本来就是有序的）数组，组成一个字符串	 //将字符数组转换成字符串
+     
+                static String valueOf(char[] data)//接收一个字符数组，把它转变成字符串的形式
+		     
+	 19	        String	substring(int beginIndex) //获取从指定的下标开始处所对应的字符到结尾的字符子串
+	 20     
+	 21	       CharSequence	subSequence(int beginIndex, int endIndex) //获取从指定的下标开始处所对应的字符到指定结束下标的字符子串，但不包括end下标
+	 
+	            String	substring(int beginIndex) //获取从指定的下角标开始到最后一个的字符串
+		     
+		        String	substring(int beginIndex, int endIndex) //获取从指定的下标开始处所对应的字符到字符串结尾处的前一个字符
+		     
+	 22        String	toLowerCase() //将给定的字符串转换成小写的字符串
+      
+     
+     23  		String	toUpperCase() //将给定的字符串转换成小写的字符串
+       
+       			String	trim()//剔除字符串前后端空格
+       
+       			int	compareTo(String anotherString) //按字典顺序比较两个字符串---参数是另外一个String对象
+	*/
+	

@@ -1,0 +1,164 @@
+关于缓冲区的类
+ 
+  1: BufferedInputStream
+  
+		 -----------字段摘要 :
+		protected  byte[] buf 
+		          存储数据的内部缓冲区数组。 
+		protected  int count 
+		          比缓冲区中最后一个有效字节的索引大 1 的索引。 
+		protected  int marklimit 
+		          调用 mark 方法后，在后续调用 reset 方法失败之前所允许的最大提前读取量。 
+		protected  int markpos 
+		          最后一次调用 mark 方法时 pos 字段的值。 
+		protected  int pos 
+		          缓冲区中的当前位置。
+		           
+		  从类 java.io.FilterInputStream 继承的字段 
+		in 
+		
+		
+		---------  构造方法摘要 
+		BufferedInputStream(InputStream in) 
+		          创建一个 BufferedInputStream 并保存其参数，即输入流 in，以便将来使用。 
+		BufferedInputStream(InputStream in, int size) 
+		          创建具有指定缓冲区大小的 BufferedInputStream 并保存其参数，即输入流 in，以便将来使用。 
+		  
+		  
+		----------  方法摘要 
+		 int available() 
+		          返回可以从此输入流读取（或跳过）、且不受此输入流接下来的方法调用阻塞的估计字节数。 
+		 void close() 
+		          关闭此输入流并释放与该流关联的所有系统资源。 
+		 void mark(int readlimit) 
+		          参见 InputStream 的 mark 方法的常规协定。 
+		 boolean markSupported() 
+		          测试此输入流是否支持 mark 和 reset 方法。 
+		 int read() 
+		          参见 InputStream 的 read 方法的常规协定。 
+		 int read(byte[] b, int off, int len) 
+		          从此字节输入流中给定偏移量处开始将各字节读取到指定的 byte 数组中。 
+		 void reset() 
+		          参见 InputStream 的 reset 方法的常规协定。 
+		 long skip(long n) 
+		          参见 InputStream 的 skip 方法的常规协定。 
+		  从类 java.io.FilterInputStream 继承的方法 
+		read 
+		
+		
+		----------  从类 java.lang.Object 继承的方法 
+		clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait 
+
+
+2:			 BufferedOutputStream
+
+			-------------字段摘要 
+			protected  byte[] buf 
+			          存储数据的内部缓冲区。 
+			protected  int count 
+			          缓冲区中的有效字节数。 
+			  从类 java.io.FilterOutputStream 继承的字段 
+			out
+			
+			 
+			----------  构造方法摘要 
+			BufferedOutputStream(OutputStream out) 
+			          创建一个新的缓冲输出流，以将数据写入指定的底层输出流。 
+			BufferedOutputStream(OutputStream out, int size) 
+			          创建一个新的缓冲输出流，以将具有指定缓冲区大小的数据写入指定的底层输出流。 
+			  
+			  
+			  ---------方法摘要 
+			 void flush() 
+			          刷新此缓冲的输出流。 
+			 void write(byte[] b, int off, int len) 
+			          将指定 byte 数组中从偏移量 off 开始的 len 个字节写入此缓冲的输出流。 
+			 void write(int b) 
+			          将指定的字节写入此缓冲的输出流。 
+			  从类 java.io.FilterOutputStream 继承的方法 
+			close, write 
+			
+			
+			  ------从类 java.lang.Object 继承的方法 
+			clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait 
+			
+
+3:     BufferedReader
+
+ 
+			    ---字段摘要 
+			  从类 java.io.Reader 继承的字段 
+			lock 
+			
+			---  构造方法摘要 
+			BufferedReader(Reader in) 
+			          创建一个使用默认大小输入缓冲区的缓冲字符输入流。 
+			BufferedReader(Reader in, int sz) 
+			          创建一个使用指定大小输入缓冲区的缓冲字符输入流。 
+			          
+			          
+			  -----方法摘要 
+			 void close() 
+			          关闭该流并释放与之关联的所有资源。 
+			 void mark(int readAheadLimit) 
+			          标记流中的当前位置。 
+			 boolean markSupported() 
+			          判断此流是否支持 mark() 操作（它一定支持）。 
+			 int read() 
+			          读取单个字符。 
+			 int read(char[] cbuf, int off, int len) 
+			          将字符读入数组的某一部分。 
+			 String readLine() 
+			          读取一个文本行。 
+			 boolean ready() 
+			          判断此流是否已准备好被读取。 
+			 void reset() 
+			          将流重置到最新的标记。 
+			 long skip(long n) 
+			          跳过字符。 
+			          
+			          
+			  ------从类 java.io.Reader 继承的方法 
+			read, read 
+			  从类 java.lang.Object 继承的方法 
+			clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait 
+			  
+
+4:  BufferedWriter
+ 
+ 
+ 
+			---字段摘要 
+			  从类 java.io.Writer 继承的字段 
+			lock 
+			
+			
+			----  构造方法摘要 
+			BufferedWriter(Writer out) 
+			          创建一个使用默认大小输出缓冲区的缓冲字符输出流。 
+			BufferedWriter(Writer out, int sz) 
+			          创建一个使用给定大小输出缓冲区的新缓冲字符输出流。 
+			          
+			          
+			  ----方法摘要 
+			 void close() 
+			          关闭此流，但要先刷新它。 
+			 void flush() 
+			          刷新该流的缓冲。 
+			 void newLine() 
+			          写入一个行分隔符。 
+			 void write(char[] cbuf, int off, int len) 
+			          写入字符数组的某一部分。 
+			 void write(int c) 
+			          写入单个字符。 
+			 void write(String s, int off, int len) 
+			          写入字符串的某一部分。 
+			          
+			          
+			----  从类 java.io.Writer 继承的方法 
+			append, append, append, write, write 
+			
+			
+			-----  从类 java.lang.Object 继承的方法 
+			clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait 
+			

@@ -1,0 +1,35 @@
+通过反射机制，可以获得关于一个类的所有的属性：
+    包括字段名，字段值，字段类型，字段的修饰符 等。
+    方法的放回返回值类型，形式参数，修饰符。
+    父亲 类的情况，和子类的一些情况。
+  如：  获取一个类中字段，方法参数以及方法的返回值类型等都有类型，type.
+
+获取一个类的Class对象的方法：Student类
+  1：Class clazz =Student.class;
+  
+  2：Student student=new Student()
+      Class clazz=student.getClass()
+      
+  3: Class clazz=Class.forName(所在路径的全类名.Student);
+                 然后再实例化一个对象：Object Object=clazz.newInstance()
+                 
+  note:反射午参构造函数
+  
+  开发中使用的 ：
+  获取父类中泛型的具体参数：
+    Type type = this.getClass().getGenericSuperclass();
+		if (type instanceof ParameterizedType) {
+			ParameterizedType parameterizedType = (ParameterizedType) type;
+			Type[] agrs = parameterizedType.getActualTypeArguments();
+			// 是否有参数的判断
+			if (agrs != null && agrs.length > 0) {
+				Type agr = agrs[0];
+				if (agr instanceof Class) {
+					clazz = (Class<T>) agr;
+				}
+			}
+		}
+		System.out.println(clazz);
+    
+    
+  

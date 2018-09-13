@@ -1,0 +1,31 @@
+readLine方法很重要，它是对read()方法的功能进行增强，增强的原理是:把read()方法所在的对象当做一个参数传递给具有增强此对象read()方法功能的
+
+的一个类（对象），这种方法叫做设计模式（装饰设计模式）
+
+或者这样子说：当想要对已有的对象进行功能增强时，
+可以定义类，将已有对象传入，基于已有的功能，
+并提供加强功能，那么自定义的该类称为装饰类。
+
+装饰类通常会通过构造方法接收装饰的对象，并基于被装饰的对象的功能，提更强的功能
+比如：
+class Person//这个类实例出来的对象具有一个吃饭的功能
+{
+pbulic void chifan()
+{
+System.out.println("吃饭");
+} 
+}
+public SpuerPerson//定义一个对上面这个对象的吃饭功能进行增强
+{
+private Person p;//创建对象，进行私有化
+SpuerPerson(Person p)//这个构造函数的参数是上面这个要被增强的功能对象
+this.p=p;
+}
+public void superChifan()
+{
+System.out.println("开胃酒")；
+p.chifan()//调用原来需要被增强的对象方法
+System.out.println(" 甜点")；
+System.out.println("来一根")；
+
+}

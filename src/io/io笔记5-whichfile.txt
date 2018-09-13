@@ -1,0 +1,14 @@
+总结输入流的相关文件和输出流的目标文件，以及将会采什么对象和对象中的什么方法
+                  --源：输入流 ： InputStream、Reader
+   1：明确原盒目的：
+				  --目的：输出流 :OutputStream、 Writer
+  
+   						  --是:字符流
+   2：操作的数据是否为纯文本
+						  --不是:字节流（因为媒体文件是字节文件，不能用字符来描述）
+   
+   											---源设备：硬盘、键盘
+   3:当前体系明确以后，明确要使用哪个具体的对象
+											---目的设备:硬盘、控制台（屏幕）
+											
+   4：是否考要提高效率：使用缓冲区：如Buffered	InputStream、BufferedOutputStream、BufferedReader、BufferedWtriterder等

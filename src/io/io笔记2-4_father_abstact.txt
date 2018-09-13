@@ -1,0 +1,224 @@
+InputStream是一个抽象类，其所有子类必须要复写其方法才能使用
+ *系统定义的子类有：
+ *     InputStream, 
+ *     FileInputStream,
+ *     FilterInputStream, 
+ *     StringBufferInputStream
+ *     ObjectInputStream, 
+ *     PipedInputStream, 
+ *     SequenceInputStream, 
+ *    
+ *     AudioInputStream,
+ *     ByteArrayInputStream,
+ 
+  ------------------------------------------------------------------
+    public abstract class InputStream
+      extends 
+      Object
+     
+      implements 
+      Closeable
+	 
+------	- ----------------------------------------------------------------------------------------
+	 
+构造方法
+InputStream() 
+----	--- ------------------------------------------------------------------------------------
+	 
+	 方法：
+	  int	available() //  返回此输入流下一个方法调用可以不受阻塞地从此输入流读取（或跳过）的估计字节数。
+        
+      void	close() //        关闭此输入流并释放与该流关联的所有系统资源。
+  
+      void	mark(int readlimit) //在此输入流中标记当前的位置。
+          
+      boolean	markSupported()// 测试此输入流是否支持 mark 和 reset 方法。
+          
+      abstract  int	read() //从输入流中读取数据的下一个字节。
+          
+      int	read(byte[] b) //      从输入流中读取一定数量的字节，并将其存储在缓冲区数组 b 中。
+    
+      int	read(byte[] b, int off, int len) //      将输入流中最多 len 个数据字节读入 byte 数组
+      
+      void	reset() //        将此流重新定位到最后一次对此输入流调用 mark 方法时的位置。
+
+   
+      long	skip(long n) //   跳过和丢弃此输入流中数据的 n 个字节。
+       
+------------------------------------------------------------------------------------------------------	 
+--------------------------------------------------------------------------------------------------------	 
+--------------------------------------------------------------------------------------------------------	 
+--------------------------------------------------------------------------------------------------------	 
+	 
+	 
+
+/*
+ *OutputStream是一个抽象类，其所有子类必须要复写其方法才能使用
+ *系统定义的子类有：
+ *  
+ *   FileOutputStream,
+ *   FilterOutputStream, 
+ *   ObjectOutputStream,
+ *   OutputStream, 
+ *   PipedOutputStream
+ 	 ByteArrayOutputStream, 
+ * 
+ 
+  ------------------------------------------------------------------
+    public abstract class InputStream
+      extends 
+      Object
+     
+      implements 
+      Closeable
+	 
+------	- ----------------------------------------------------------------------------------------
+	 
+构造方法
+OutputStream() 
+----	--- ------------------------------------------------------------------------------------
+	 
+	 方法：
+	 void	close() 
+                	关闭此输出流并释放与此流有关的所有系统资源。
+          
+    void	flush() 
+          			刷新此输出流并强制写出所有缓冲的输出字节。
+          
+     void	write(byte[] b) 
+          			将 b.length 个字节从指定的 byte 数组写入此输出流。
+          
+     void	write(byte[] b, int off, int len) 
+          		将指定 byte 数组中从偏移量 off 开始的 len 个字节写入此输出流。
+          
+      abstract  void	write(int b) 
+          				将指定的字节写入此输出流。
+------------------------------------------------------------------------------------------------------	 
+	--------------------------------------------------------------------------------------------------------	 
+--------------------------------------------------------------------------------------------------------	 
+--------------------------------------------------------------------------------------------------------	 
+ 
+	 
+Reader是一个抽象类，其所有子类必须要复写其方法才能使用	 
+     public abstract class Reader
+        extends 
+        Object
+   
+      implements 
+      Readable, 
+      Closeable
+--------------------------------------------------------------------------------------------------------	 
+直接已知子类：
+BufferedReader, CharArrayReader, FilterReader, InputStreamReader, PipedReader, StringReader	 
+	 
+	 
+	 --------------------------------------------------------------------------------------------------------	 
+
+构造方法摘要
+protected	Reader()  创建一个新的字符流 reader，其重要部分将同步其自身的 reader。
+         
+protected	Reader(Object lock)   创建一个新的字符流 reader，其重要部分将同步给定的对象
+ --------------------------------------------------------------------------------------------------------	 
+  
+方法摘要
+abstract  void	close() 关闭该流并释放与之关联的所有资源。
+          
+     void	mark(int readAheadLimit)         //  标记流中的当前位置。
+
+     boolean	markSupported()           //   判断此流是否支持 mark() 操作。 
+     
+ 	int	read()     //  读取单个字符。
+    
+ 	int	read(char[] cbuf)// 将字符读入数组。
+          
+	abstract  int	read(char[] cbuf, int off, int len)  //  将字符读入数组的某一部分。
+       
+ 	int	read(CharBuffer target) // 试图将字符读入指定的字符缓冲区。 
+        
+ 	boolean	ready() //判断是否准备读取此流。
+          
+ 	void	reset() //重置该流。
+          
+ 	long	skip(long n)      //  跳过字符   
+ ----    ------------------------------------------------------------------------------------------
+ ----    ------------------------------------------------------------------------------------------
+ ----    ------------------------------------------------------------------------------------------
+ ----    ------------------------------------------------------------------------------------------
+	 
+	 
+	Writer是一个抽象类，其所有子类必须要复写其方法才能使用	 
+public abstract class Writer
+     
+extends 
+      Object
+   implements 
+      Appendable, 
+      Closeable, 
+      Flushable   
+ -------------------------------    --------------------------------------------------------------------------------------------------------	 
+
+构造方法摘要:
+protected	Writer() //   创建一个新的字符流 writer，其关键部分将同步 writer 自身。
+       
+protected	Writer(Object lock) //      创建一个新的字符流 writer，其关键部分将同步给定的对象
+--------------     -------------------------------    --------------------------------------------------------------------------------------------------------	 
+
+方法摘要:
+     
+			 Writer	append(char c)  // 将指定字符添加到此 writer。
+			        
+			 Writer	append(CharSequence csq)//        将指定字符序列添加到此 writer。
+
+			  Writer	append(CharSequence csq, int start, int end) //       将指定字符序列的子序列添加到此 writer.Appendable。
+
+			abstract  void	close() //			          关闭此流，但要先刷新它。
+
+			abstract  void	flush() //刷新该流的缓冲
+			          。
+			 void	write(char[] cbuf) //     写入字符数组。
+			     
+			abstract  void	write(char[] cbuf, int off, int len) //			          写入字符数组的某一部分。
+
+			 void	write(int c) //			          写入单个字符。/
+
+			 void	write(String str) //			          写入字符串。
+
+			 void	write(String str, int off, int len)// 
+			          写入字符串的某一部分。
+      
+     
+--------------------------------------------------------------------------------------------------------	 
+直接已知子类：
+Writer, BufferedWriter, CharArrayWriter, FilterWriter, OutputStreamWriter,
+ FileWriter, PipedWriter, PrintWriter, StringWriter, Reader
+	 --------------------------------------------------------------------------------------------------------	 
+
+构造方法
+protected	Writer() 
+          创建一个新的字符流 writer，其关键部分将同步 writer 自身。
+protected	Writer(Object lock) 
+          创建一个新的字符流 writer，其关键部分将同步给定的对象。
+ --------------------------------------------------------------------------------------------------------	 
+  
+方法摘要
+方法摘要
+			 Writer	append(char c) 
+			          将指定字符添加到此 writer。
+			 Writer	append(CharSequence csq) 
+			          将指定字符序列添加到此 writer。
+			 Writer	append(CharSequence csq, int start, int end) 
+			          将指定字符序列的子序列添加到此 writer.Appendable。
+			abstract  void	close() 
+			          关闭此流，但要先刷新它。
+			abstract  void	flush() 
+			          刷新该流的缓冲。
+			 void	write(char[] cbuf) 
+			          写入字符数组。
+			abstract  void	write(char[] cbuf, int off, int len) 
+			          写入字符数组的某一部分。
+			 void	write(int c) 
+			          写入单个字符。
+			 void	write(String str) 
+			          写入字符串。
+			 void	write(String str, int off, int len) 
+			          写入字符串的某一部分。

@@ -9,7 +9,7 @@ package basic;
  */
 class Animal {
 	int a = 1;
-	protected int c = 3;
+	protected int  c = 3;
 	public int d = 4;
 
 	/**
@@ -57,7 +57,7 @@ public class Day19_Inherit extends Animal {
 			for (int b = 10; b > a; b--) {
 				System.out.print("-");
 			}
-			System.out.println("-");
+
 		}
 	}
 }

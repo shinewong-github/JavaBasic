@@ -13,8 +13,8 @@ package basic;
  */
 interface Inter   //相当于一个类
 {
-	public static int x=10;
-	public abstract void show();//可以定义抽象的方法
+	int x=10;
+	void show();//可以定义抽象的方法
 }
 class plant implements Inter
 {

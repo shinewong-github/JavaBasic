@@ -20,12 +20,12 @@ public class Day24_static_Keywords
         p.size=14;        // 调用成员变量 size并赋值为 14；  size是非静态变量
         
         System.out.println(p.size);
-             System.out.println(p.b);  //对象调用了静态变量 b
+             System.out.println(Pen.b);  //对象调用了静态变量 b
         		 System.out.println(Pen.ba);   //类名调用了静态变量 ba
         				 System.out.println(Pen.br);  //类名调用了静态变量 br
         p.write();       //调用一般成员方法
         Pen.print();      //用类名调用静态一般函数print();
-        p.print();       //用对象调用静态一般函数 print();
+        Pen.print();       //用对象调用静态一般函数 print();
         //所以运行完后的结果有  size=14和静态修饰下的brand 不用对象要求，已经配备好了数据。 
        // Pen.print(); //用static修饰函数时，其形式为， 类名。函数名  ()的调用; Pen.print(); 
   }

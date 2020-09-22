@@ -8,9 +8,9 @@ package basic;
  */
 interface PCI
 {
-	public abstract void open();//接口中定义了抽象的方法
+	void open();//接口中定义了抽象的方法
 	
-	public abstract  void close();//接口中定义了抽象的方法
+	void close();//接口中定义了抽象的方法
 	
 	
 }
